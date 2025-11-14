@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自我关怀泡泡 · 液态情绪核</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-gradient" aria-hidden="true">
+      <span class="glow blotch"></span>
+      <span class="glow halo"></span>
+    </div>
+    <div class="floating-orbs" aria-hidden="true">
+      <span class="orb orb-one"></span>
+      <span class="orb orb-two"></span>
+      <span class="orb orb-three"></span>
+      <span class="orb orb-four"></span>
+    </div>
+    <main class="app-shell">
+      <section class="snapshot-stage">
+        <header class="stage-header">
+          <p class="eyebrow">今天的轻触点</p>
+          <h1 id="promptText">这会儿更想往哪走半步？</h1>
+          <p class="subline" id="buddyLine">我在旁边等着，你随时可以试一试。</p>
+          <button class="tiny-button" id="refreshQuestion" aria-label="换个问法">换个感觉</button>
+        </header>
+
+        <section class="emotion-stage" aria-label="液态情绪核心">
+          <div class="core-orbit">
+            <div class="orbit-halo" aria-hidden="true"></div>
+            <div class="emotion-core" id="emotionCore" role="button" tabindex="0" aria-label="中央情绪球">
+              <div class="core-glass"></div>
+              <div class="core-caustic"></div>
+              <div class="core-liquid"></div>
+              <div class="core-highlight"></div>
+              <div class="core-spec"></div>
+              <div class="core-rings"></div>
+            </div>
+            <div class="radial-menu" id="radialMenu" aria-hidden="true"></div>
+          </div>
+          <p class="core-hint">轻点暂停 · 长按 0.6 秒呼出方向 · 拖动手指选择</p>
+        </section>
+
+        <section class="core-status" id="coreStatus" aria-live="polite">
+          <p>轻轻长按 0.5 秒，看看球球想递给你的方向。</p>
+        </section>
+
+        <footer class="panel-footer minimal">
+          <button class="ghost-button">就先这样</button>
+          <button class="primary-button">想多聊一点</button>
+        </footer>
+      </section>
+    </main>
+    <svg class="fx-defs" aria-hidden="true">
+      <filter id="liquidWarp">
+        <feTurbulence type="turbulence" baseFrequency="0.25 0.3" numOctaves="2" seed="8">
+          <animate attributeName="baseFrequency" dur="16s" values="0.2 0.25;0.28 0.32;0.2 0.25" repeatCount="indefinite"></animate>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" scale="25" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+      </filter>
+    </svg>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
